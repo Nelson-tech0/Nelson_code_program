@@ -1,9 +1,7 @@
-let a ='nelson';
-let b = 'hello'
-console.log(a + " " + b + "," + ' how are you doing today?');
+let i = 1;
+let num = 3;
 
-i = 0;
-while (i <= 10) {
-    console.log(i);
+while(i <= 12){
+    console.log(num * i);
     i++;
 }
