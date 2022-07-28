@@ -1,12 +1,17 @@
 #include <stdio.h>
+
 unsigned long amount = 10000, deposit, withdrawal, transfer, send, pinchange;
-int pin, select, k, account, accountpin, bank, trf, newpin;
+int pin, select, k, account, accountpin, bank, trf, newpin, type, age, bvn;
 char transaction = 'y';
 char name[] = "Nelson";
 char name1[] = "Hilary";
 char sign = 'N';
 char first_name[50];
 char last_name[50];
+char address[50];
+char occupation[50];
+char email[50];
+char kin[100];
 
 void main()
 {
@@ -102,6 +107,9 @@ void main()
                 printf(">>>> 5. Union bank >>>>>\n");
                 printf(">>>> 6. Polaris bank >>>>>\n");
                 printf(">>>> 7. First bank >>>>>\n");
+                printf(">>>> 8. FCMB >>>>>\n");
+                printf(">>>> 9. United bank for Africa >>>>>\n");
+                printf(">>>> 10. Guaranty Trust Holding Company Plc >>>>>\n");
                 printf("Please choose the bank you would like to make a transfer\n");
                 scanf("%d", &bank);
                 switch (bank)
@@ -113,6 +121,9 @@ void main()
                 case 5:
                 case 6:
                 case 7:
+                case 8:
+                case 9:
+                case 10:
                             printf("Please enter account number: ");
                             scanf("%d", &account);
                             if(account)
@@ -136,6 +147,7 @@ void main()
                                 break;
                             
                             default:
+                            printf("Invalid input!!!");
                                 break;
                             }
                                 break;
@@ -152,8 +164,92 @@ void main()
         scanf("%d", &newpin);
         printf("\n\nDear %s %s, Your pin has been successfully changed", name, name1);
             break;
+        case 6:
+        printf(">>>>> 1. Savings account >>>>>\n");
+        printf(">>>>> 2. Checking account >>>>>\n\n");
+        printf("Please choose account type: ");
+        scanf("%d", &type);
+        switch (type)
+        {
+        case 1:
+        printf("Please fill the form below\n\n");
+        printf("First name: ");
+        scanf("%s", first_name);
+        printf("Last name: ");
+        scanf("%s", &last_name);
+        printf("Address: ");
+        scanf("%s", &address);
+        printf("Age: ");
+        scanf("%d", &age);
+        if(age <= 18)
+        {
+            printf("Dear %s %s, You are not eligible to open an account yet!", first_name, last_name);
+            break;
+        }
+        printf("Email: ");
+        scanf("%s", &email);
+        printf("Occupation: ");
+        scanf("%s", &occupation);
+        printf("Next of Kin: ");
+        scanf("%s", &kin);
+        printf("BVN: ");
+        scanf("%d", &bvn);
+        if(bvn != 2025)
+        {
+            printf("incorrect bvn pin.\n");
+            printf("Enter a correct bvn pin: ");
+            scanf("%d", &bvn);
+            printf(">>>> BVN authorization >>>>>\n\n");
+        }
+        printf("\n\nProfile:\nfirstname: %s\nlastname: %s\naddress: %s\nage: %d\nemail: %s\noccupation: %s\nkin: %s\nbvn: %d\n", first_name, last_name, address, age, email, occupation, kin, bvn);
+        printf("\n");
+        printf("\n\n \t\t******** Creating account ********* ");
+        printf("\n\nNew account number: 20901234\n");
+        printf("\n\nDear %s %s, your Savings account has been successfully created! Thank you for choosing Access bank plc.\n", first_name, last_name);
+            break;
+        default:
+        printf("invalid selection.\n");
+            break;
+        case 2:
+        printf("Please fill the form below\n\n");
+        printf("First name: ");
+        scanf("%s", first_name);
+        printf("Last name: ");
+        scanf("%s", &last_name);
+        printf("Address: ");
+        scanf("%s", &address);
+        printf("Age: ");
+        scanf("%d", &age);
+        if(age <= 18)
+        {
+            printf("Dear %s %s, You are not eligible to open an account yet!", first_name, last_name);
+            break;
+        }
+        printf("Email: ");
+        scanf("%s", &email);
+        printf("Occupation: ");
+        scanf("%s", &occupation);
+        printf("Next of Kin: ");
+        scanf("%s", &kin);
+        printf("BVN: ");
+        scanf("%d", &bvn);
+        if(bvn != 2025)
+        {
+            printf("incorrect bvn pin.\n");
+            printf("Enter a correct bvn pin: ");
+            scanf("%d", &bvn);
+            printf(">>>> BVN authorization >>>>>");
+        }
+        printf("\n\nProfile:\nfirstname: %s\nlastname: %s\naddress: %s\nage: %d\nemail: %s\noccupation: %s\nkin: %s\nbvn: %d\n", first_name, last_name, address, age, email, occupation, kin, bvn);
+        printf("\n");
+        printf("\n\n \t\t******** Creating account ********* ");
+        printf("\n\nNew account number: 21345690\n");
+        printf("\n\nDear %s %s, your checking account has been successfully created! Thank you for choosing Access bank plc.\n", first_name, last_name);
+            break;
+        }
         case 7:
         printf("\n\nDear %s %s! Thank you for banking with us!", name, name1);
+            break;
         default:
         printf("\n\nInvalid input");
             break;
