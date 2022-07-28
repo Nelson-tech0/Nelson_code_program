@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-unsigned long amount = 10000, deposit, withdrawal, transfer, send, pinchange;
+unsigned long amount = 1500000, deposit, withdrawal, transfer, send, pinchange;
 int pin, select, k, account, accountpin, bank, trf, newpin, type, age, bvn;
 char transaction = 'y';
 char name[] = "Nelson";
@@ -18,30 +18,32 @@ void main()
     while (pin != 2023)
     {
         printf("\n\n********** HELLO! WELCOME TO ACCESS BANK PLC **********\n");
-        printf("******************* ATM BANKING ************************");
-        printf("\n\n>>>> Dear %s %s, Welcome <<<<<\n", name, name1);
-        printf("\n\nPlease enter your pin: ");
-        scanf("%d", &pin);
+        printf("******************* ATM BANKING ************************\n\n");
+        printf("\t<LOGIN PAGE>.......\n\n");
+        printf("\tPlease enter your pin: ");
+        scanf("\n%d", &pin);
         if(pin != 2023)
         {
             printf("Incorrect Pin, please try again\n");
         }
+        printf(">>>> Dear %s %s, Welcome to your login page<<<<<\n", name, name1);
+        
     }
     do
     {
-        printf(">>>>> 1. Check account balance >>>>>\n");
-        printf(">>>>> 2. Cash Withdrawal >>>>>\n");
-        printf(">>>>> 3. Cash Deposit >>>>>\n");
-        printf(">>>>> 4. Fund Transfer >>>>>\n");
-        printf(">>>>> 5. Pin Change >>>>>\n");
-        printf(">>>>> 6. Account Opening >>>>>\n");
-        printf(">>>>> 7. Exit >>>>>\n");
-        printf("\n\nPlease select from the options above: ");
+        printf("\n>>>>> 1. Check account balance >>>>>");
+        printf("\n>>>>> 2. Cash Withdrawal >>>>>");
+        printf("\n>>>>> 3. Cash Deposit >>>>>");
+        printf("\n>>>>> 4. Fund Transfer >>>>>");
+        printf("\n>>>>> 5. Pin Change >>>>>");
+        printf("\n>>>>> 6. Account Opening >>>>>");
+        printf("\n>>>>> 7. Logout >>>>>\n");
+        printf("\nPlease select from the options above: ");
         scanf("%d", &select);
         switch (select)
         {
         case 1:
-        printf("\n\nDear %s %s, You account balance is: %c%lu", name, name1, sign, amount);
+        printf("\n\nDear %s %s, Your account balance is: %c%lu", name, name1, sign, amount);
             break;
         case 2:
         printf("Please enter the amount you wish to withdraw: ");
@@ -145,14 +147,19 @@ void main()
                                 printf("Invalid pin\n");
                             }
                                 break;
-                            
                             default:
                             printf("Invalid input!!!");
                                 break;
                             }
-                                break;
-                        }
                             break;
+                        case 3: 
+                        printf("Dear %s %s, thank you for banking with us.\n", name, name1);
+                            break;
+                        default:
+                        printf("Invalid input\n");
+                            break;
+                        }
+                        break; 
         case 5:
         printf("Enter previous pin: ");
         scanf("%d", &pin);
@@ -248,19 +255,24 @@ void main()
             break;
         }
         case 7:
-        printf("\n\nDear %s %s! Thank you for banking with us!", name, name1);
-            break;
-        default:
-        printf("\n\nInvalid input");
+        printf("Please enter pin: ");
+        scanf("%d", &pin);
+        if(pin != 2023)
+        {
+            printf("Invalid pin, try again.\n");
             break;
         }
-        if(transaction == 'n' || transaction == 'N')
-        {
-            k = 1;
+        printf("Dear %s %s, you have been logged out.", name, name1);
         }
         printf("\n\nWould you like to perform another transaction?(y/n): ");
         fflush(stdin);
         scanf("%c", &transaction);
-    } while (!k);
-    printf("\n\nDear %s %s, Thank you for choosing Access bank. Goodbye!", name, name1);   
+        if(transaction == 'n' || transaction == 'N')
+        {
+            k = 1;
+        }
+    } while (!k);{
+        printf("\n\nDear %s %s, Thank you for choosing Access bank. Goodbye!", name, name1);  
+    }
 }
+  
